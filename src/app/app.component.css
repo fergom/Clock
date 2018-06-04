@@ -1,0 +1,22 @@
+p {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.row {
+  margin-top: 50px;
+}
+
+.par-top {
+  margin-top: 10px;
+}
+.par-bottom {
+  margin-bottom: 10px;
+}
+
+.container {
+  margin-right: 5px;
+  background-color: #4c6aff;
+  border-radius: 25px;
+}
