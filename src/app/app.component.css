@@ -1,7 +1,11 @@
-p {
+h1, p {
   text-align: center;
-  color: white;
+  color: #64cdff;
   font-weight: bold;
+}
+
+.col-xs-5 {
+  margin-top: 10px !important;
 }
 
 .row {
@@ -16,7 +20,13 @@ p {
 }
 
 .container {
+  border: solid 2px #64cdff;
   margin-right: 5px;
-  background-color: #4c6aff;
+  margin-bottom: 5px;
+  background-color: white;
   border-radius: 25px;
+}
+
+.left-offset {
+  margin-left: 12.5%;
 }

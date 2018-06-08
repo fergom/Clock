@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,43 +8,36 @@ import * as moment from 'moment';
 })
 export class AppComponent implements OnInit {
 
-  private ms = 0;
+  private dateString = '10/12/2017';
+  private then = moment(this.dateString, 'DD/MM/YYYY');
+  private now = moment();
 
-  MONTHS_CONST = 12;
-  HOURS_CONST = 24;
-  MINUTES_SECONDS_CONST = 60;
-
-  years = 0;
-  months = 0;
-  days = 0;
-  hours = 0;
-  minutes = 0;
-  seconds = 0;
+  years = '';
+  months = '';
+  days = '';
+  hours = '';
+  minutes = '';
+  seconds = '';
 
   ngOnInit(): void {
-    const then = '10/12/2017';
-    this.ms = moment.duration(moment().diff(moment(then, 'DD/MM/YYYY'))).asMilliseconds();
     this.updateVariables();
 
     setInterval(() => {
-      this.ms += 1000;
+      this.then = moment(this.dateString, 'DD/MM/YYYY');
+      this.now = moment();
       this.updateVariables();
     }, 1000);
   }
 
-  getDaysOfMonth(): number {
-    return moment().daysInMonth();
-  }
-
   private updateVariables(): void {
-    const duration = moment.duration(this.ms, 'milliseconds');
-
-    this.years = Math.floor(duration.asYears());
-    this.months = Math.floor(duration.asMonths());
-    this.days = Math.floor(duration.asDays());
-    this.hours = Math.floor(duration.asHours());
-    this.minutes = Math.floor(duration.asMinutes());
-    this.seconds = Math.floor(duration.asSeconds());
+    this.hours = this.now.format('hh');
+    this.minutes = this.now.format('mm');
+    this.seconds = this.now.format('ss');
+    this.years = this.now.diff(this.then, 'years').toString();
+    this.then.add(this.years, 'years');
+    this.months = this.now.diff(this.then, 'months').toString();
+    this.then.add(this.months, 'months');
+    this.days = this.now.diff(this.then, 'days').toString();
   }
 
 }
