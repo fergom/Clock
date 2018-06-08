@@ -8,7 +8,7 @@ import * as moment from 'moment';
 })
 export class AppComponent implements OnInit {
 
-  private dateString = '10/12/2017';
+  dateString = '10/12/2017';
   private then = moment(this.dateString, 'DD/MM/YYYY');
   private now = moment();
 
